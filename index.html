@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Page Template</title>
+    
+    <!-- CSS STYLES -->
+    <style>
+        /* Base Variables & Reset */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f4f4f9;
+            --btn-bg: #007bff;
+            --btn-text: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1e1e24;
+            --text-color: #f4f4f9;
+            --card-bg: #2a2a35;
+            --btn-bg: #ffc107;
+            --btn-text: #1e1e24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* App Card Layout */
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Interactive Element Style */
+        .btn {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML STRUCTURE -->
+    <div class="card">
+        <h1>All-in-One File</h1>
+        <p>This template bundles HTML, structural CSS, and interactive JavaScript seamlessly into a single document.</p>
+        <button class="btn" id="themeToggle">Toggle Dark Mode</button>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('themeToggle');
+            
+            toggleButton.addEventListener('click', () => {
+                // Check current theme attribute status
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                
+                if (currentTheme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    toggleButton.textContent = 'Toggle Dark Mode';
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    toggleButton.textContent = 'Toggle Light Mode';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
